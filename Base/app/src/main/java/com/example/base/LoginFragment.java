@@ -56,7 +56,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
             Toast.makeText(getContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
             getFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new EditarCuentaFragment())
+                    .replace(R.id.fragment_container, new WelcomeFragment())
                     .commit();
         } else {
             Toast.makeText(getContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show();

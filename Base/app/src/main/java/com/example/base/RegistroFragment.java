@@ -57,7 +57,7 @@ public class RegistroFragment extends Fragment implements View.OnClickListener {
 
             Toast.makeText(getActivity(), "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show();
             getFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new EditarCuentaFragment())
+                    .replace(R.id.fragment_container, new WelcomeFragment())
                     .commit();
         }
     }

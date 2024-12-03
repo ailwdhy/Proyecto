@@ -12,11 +12,11 @@ import java.util.List;
 public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHolder> {
 
     private List<Tarea> tareas;
-    private View.OnClickListener onClickListener;
+    private TareasFragment fragment;
 
-    public TareaAdapter(List<Tarea> tareas, View.OnClickListener onClickListener) {
+    public TareaAdapter(List<Tarea> tareas, TareasFragment fragment) {
         this.tareas = tareas;
-        this.onClickListener = onClickListener;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -33,8 +33,8 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
         holder.tvMateria.setText(tarea.getMateria());
         holder.tvDescripcion.setText(tarea.getDescripcion());
         holder.tvFechaHoraLimite.setText(tarea.getFechaHoraLimite().toString());
-        holder.btnEditarTarea.setOnClickListener(onClickListener);
-        holder.btnEliminarTarea.setOnClickListener(onClickListener);
+        holder.btnEditarTarea.setOnClickListener(v -> fragment.editarTarea(tarea));
+        holder.btnBorrarTarea.setOnClickListener(v -> fragment.borrarTarea(tarea));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
         TextView tvDescripcion;
         TextView tvFechaHoraLimite;
         Button btnEditarTarea;
-        Button btnEliminarTarea;
+        Button btnBorrarTarea;
 
         public TareaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -57,7 +57,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
             tvDescripcion = itemView.findViewById(R.id.tvDescripcion);
             tvFechaHoraLimite = itemView.findViewById(R.id.tvFechaHoraLimite);
             btnEditarTarea = itemView.findViewById(R.id.btnEditarTarea);
-            btnEliminarTarea = itemView.findViewById(R.id.btnEliminarTarea);
+            btnBorrarTarea = itemView.findViewById(R.id.btnBorrarTarea);
         }
     }
 }

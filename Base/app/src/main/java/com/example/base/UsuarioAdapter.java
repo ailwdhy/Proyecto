@@ -12,11 +12,11 @@ import java.util.List;
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioViewHolder> {
 
     private List<Usuario> usuarios;
-    private View.OnClickListener onClickListener;
+    private AdminFragment fragment;
 
-    public UsuarioAdapter(List<Usuario> usuarios, View.OnClickListener onClickListener) {
+    public UsuarioAdapter(List<Usuario> usuarios, AdminFragment fragment) {
         this.usuarios = usuarios;
-        this.onClickListener = onClickListener;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -31,8 +31,8 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioV
         Usuario usuario = usuarios.get(position);
         holder.tvNombre.setText(usuario.getNombre());
         holder.tvCorreo.setText(usuario.getCorreo());
-        holder.btnEditar.setOnClickListener(onClickListener);
-        holder.btnBorrar.setOnClickListener(onClickListener);
+        holder.btnEditarUsuario.setOnClickListener(v -> fragment.editarUsuario(usuario));
+        holder.btnBorrarUsuario.setOnClickListener(v -> fragment.borrarUsuario(usuario));
     }
 
     @Override
@@ -43,15 +43,15 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioV
     public static class UsuarioViewHolder extends RecyclerView.ViewHolder {
         TextView tvNombre;
         TextView tvCorreo;
-        Button btnEditar;
-        Button btnBorrar;
+        Button btnEditarUsuario;
+        Button btnBorrarUsuario;
 
         public UsuarioViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNombre = itemView.findViewById(R.id.tvNombre);
             tvCorreo = itemView.findViewById(R.id.tvCorreo);
-            btnEditar = itemView.findViewById(R.id.btnEditar);
-            btnBorrar = itemView.findViewById(R.id.btnBorrar);
+            btnEditarUsuario = itemView.findViewById(R.id.btnEditarUsuario);
+            btnBorrarUsuario = itemView.findViewById(R.id.btnBorrarUsuario);
         }
     }
 }

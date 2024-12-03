@@ -17,16 +17,18 @@ public class AdminFragment extends Fragment implements View.OnClickListener {
     private RecyclerView recyclerView;
     private UsuarioAdapter usuarioAdapter;
     private List<Usuario> usuarios;
+    private UsuarioDao usuarioDao;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_admin, container, false);
+
         recyclerView = view.findViewById(R.id.recyclerViewUsuarios);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        usuarioDao = Room.databaseBuilder(getContext(), AppDatabase.class, "app_database").allowMainThreadQueries().build().usuarioDao();
         usuarios = obtenerUsuarios();
-
         usuarioAdapter = new UsuarioAdapter(usuarios, this);
         recyclerView.setAdapter(usuarioAdapter);
 
@@ -38,9 +40,9 @@ public class AdminFragment extends Fragment implements View.OnClickListener {
         int position = recyclerView.getChildAdapterPosition((View) v.getParent().getParent());
         Usuario usuario = usuarios.get(position);
 
-        if (v.getId() == R.id.btnEditar) {
+        if (v.getId() == R.id.btnEditarUsuario) {
             editarUsuario(usuario);
-        } else if (v.getId() == R.id.btnBorrar) {
+        } else if (v.getId() == R.id.btnBorrarUsuario) {
             borrarUsuario(usuario);
         }
     }
@@ -50,13 +52,32 @@ public class AdminFragment extends Fragment implements View.OnClickListener {
         return db.usuarioDao().getAllUsuarios();
     }
 
-    private void editarUsuario(Usuario usuario) {
-        AppDatabase db = Room.databaseBuilder(getContext(), AppDatabase.class, "app_database").allowMainThreadQueries().build();
-        db.usuarioDao().update(usuario);
+    public void editarUsuario(Usuario usuario) {
+        // Lógica para editar el usuario
+        EditarCuentaFragment editarCuentaFragment = new EditarCuentaFragment();
+        Bundle args = new Bundle();
+        args.putInt("usuarioId", usuario.getId());
+        editarCuentaFragment.setArguments(args);
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, editarCuentaFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
-    private void borrarUsuario(Usuario usuario) {
-        AppDatabase db = Room.databaseBuilder(getContext(), AppDatabase.class, "app_database").allowMainThreadQueries().build();
-        db.usuarioDao().delete(usuario);
+    public void borrarUsuario(Usuario usuario) {
+        new Thread(() -> {
+            try {
+                usuarioDao.delete(usuario);
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(() -> {
+                        usuarios.clear();
+                        usuarios.addAll(obtenerUsuarios());
+                        usuarioAdapter.notifyDataSetChanged();
+                    });
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }
