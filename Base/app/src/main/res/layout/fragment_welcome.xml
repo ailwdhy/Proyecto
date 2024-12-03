@@ -9,13 +9,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido a Base"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:text="ailed's dev"
+        android:textSize="48sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Utilice el menú para navegar a los diferentes módulos."
+        android:text="usa el nav drawer para navegar entre los modulos!"
         android:textSize="16sp" />
 </LinearLayout>

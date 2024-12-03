@@ -1,39 +1,9 @@
 <resources>
-    <!-- Tema principal -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorAccent">@color/yellow</item>
-    </style>
-
-    <!-- Estilo para el Toolbar -->
-    <style name="ToolbarTitle">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
-    <!-- Botones -->
-    <style name="ButtonStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint">@color/green</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif</item>
-    </style>
-
-    <!-- Textos -->
-    <style name="TextStyle">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
-    <!-- Entrada de texto -->
-    <style name="EditTextStyle">
-        <item name="android:backgroundTint">@color/pink</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="colorPrimary">#000000</item> <!-- Negro -->
+        <item name="colorPrimaryDark">#000000</item> <!-- Negro oscuro -->
+        <item name="colorAccent">#FFFFFF</item> <!-- Blanco -->
+        <item name="android:textColor">#000000</item> <!-- Negro -->
+        <item name="android:background">#FFFFFF</item> <!-- Blanco -->
     </style>
 </resources>

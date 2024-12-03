@@ -22,12 +22,15 @@
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#505050"
+        android:baselineAligned="false"
         android:text="Guardar" />
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#505050"
         android:text="Cerrar Sesión" />
 
 </LinearLayout>

@@ -39,13 +39,15 @@
         android:id="@+id/btnIniciarTemporizador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iniciar Temporizador"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#505050"
+        android:text="Iniciar Temporizador" />
 
     <Button
         android:id="@+id/btnReiniciarTemporizador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reiniciar Temporizador"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#505050"
+        android:text="Reiniciar Temporizador" />
 </LinearLayout>

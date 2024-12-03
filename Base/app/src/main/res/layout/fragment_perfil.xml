@@ -25,12 +25,14 @@
         android:id="@+id/btnEditarCuenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Editar Cuenta"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#505050"
+        android:text="Editar Cuenta" />
 
     <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#505050"
         android:text="Cerrar Sesión" />
 </LinearLayout>
