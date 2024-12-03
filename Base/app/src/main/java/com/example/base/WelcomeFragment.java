@@ -55,9 +55,7 @@ public class WelcomeFragment extends Fragment {
         } else if (itemId == R.id.nav_pomodoro) {
             navigateToFragment(new PomodoroFragment());
             return true;
-        } else if (itemId == R.id.nav_logout) {
-            // Handle logout
-            return true;
+
         } else {
             return super.onOptionsItemSelected(item);
         }

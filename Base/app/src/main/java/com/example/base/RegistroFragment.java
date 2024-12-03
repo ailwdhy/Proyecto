@@ -49,8 +49,13 @@ public class RegistroFragment extends Fragment implements View.OnClickListener {
             Usuario usuario = new Usuario(nombre, correo, contrasena);
             db.usuarioDao().insert(usuario);
 
+            // Obtener el ID del usuario insertado
+            Usuario usuarioInsertado = db.usuarioDao().login(correo, contrasena);
+            int usuarioId = usuarioInsertado.getId();
+
             SharedPreferences preferences = getActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("usuarioId", usuarioId);
             editor.putString("nombre", nombre);
             editor.putString("correo", correo);
             editor.apply();

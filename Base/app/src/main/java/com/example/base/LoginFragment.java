@@ -50,6 +50,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if (usuario != null) {
             SharedPreferences preferences = getActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("usuarioId", usuario.getId());
             editor.putString("nombre", usuario.getNombre());
             editor.putString("correo", usuario.getCorreo());
             editor.apply();

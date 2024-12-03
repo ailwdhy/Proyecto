@@ -47,21 +47,21 @@ public class AdminFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    public void editarUsuario(Usuario usuario) {
+        // Lógica para editar el usuario
+        EditarPerfilAdminFragment editarPerfilAdminFragment = new EditarPerfilAdminFragment();
+        Bundle args = new Bundle();
+        args.putInt("usuarioId", usuario.getId());
+        editarPerfilAdminFragment.setArguments(args);
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, editarPerfilAdminFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
     private List<Usuario> obtenerUsuarios() {
         AppDatabase db = Room.databaseBuilder(getContext(), AppDatabase.class, "app_database").allowMainThreadQueries().build();
         return db.usuarioDao().getAllUsuarios();
-    }
-
-    public void editarUsuario(Usuario usuario) {
-        // Lógica para editar el usuario
-        EditarCuentaFragment editarCuentaFragment = new EditarCuentaFragment();
-        Bundle args = new Bundle();
-        args.putInt("usuarioId", usuario.getId());
-        editarCuentaFragment.setArguments(args);
-        getFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, editarCuentaFragment)
-                .addToBackStack(null)
-                .commit();
     }
 
     public void borrarUsuario(Usuario usuario) {

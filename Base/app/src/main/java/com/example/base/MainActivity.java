@@ -67,8 +67,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             selectedFragment = new TareasFragment();
         } else if (itemId == R.id.nav_pomodoro) {
             selectedFragment = new PomodoroFragment();
-        } else if (itemId == R.id.nav_logout) {
-            // Handle logout
         }
 
         if (selectedFragment != null) {
