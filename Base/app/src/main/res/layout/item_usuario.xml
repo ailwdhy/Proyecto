@@ -31,13 +31,15 @@
             android:id="@+id/btnEditarUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Editar"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#505050"
+            android:text="Editar" />
 
         <Button
             android:id="@+id/btnBorrarUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#505050"
             android:text="Borrar" />
     </LinearLayout>
 </LinearLayout>

@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:layout_marginTop="50dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,20 +20,20 @@
             android:id="@+id/etMateria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Materia"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:hint="Materia" />
 
         <EditText
             android:id="@+id/etDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descripción"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:hint="Descripción" />
 
         <DatePicker
             android:id="@+id/fechaHoraLimite"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="326dp"
             android:layout_marginTop="16dp"
             android:backgroundTint="#505050" />
 

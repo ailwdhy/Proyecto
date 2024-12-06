@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -16,17 +17,17 @@
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:hint="Correo"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="16dp" />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/etContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:layout_marginTop="16dp" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnCrearCuenta"
